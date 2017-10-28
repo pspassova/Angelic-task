@@ -1,0 +1,42 @@
+Your task is to organize and group data, which consists of an array of json objects (company employees). The following functions should be implemented:
+
+- searching for a team - display all employess within a team, when searching for team's id
+e.g. searching for a team with id 4 should display:
+
+		Team Id 4
+	First Name Last Name
+	First Name Last Name
+	First Name Last Name
+	First Name Last Name
+
+- display all employees without a team
+
+- searching for a person with specific language - display all people speaking specific
+	language among all teams groupped by team id and those without a team
+e.g. searching for Bulgarian should display:
+
+	Language Bulgarian 
+
+		Team Id 4
+	First Name Last Name
+	First Name Last Name
+	First Name Last Name
+	First Name Last Name
+
+		Team Id 6
+	First Name Last Name
+	First Name Last Name
+	First Name Last Name
+	First Name Last Name
+
+		No team
+	First Name Last Name
+	First Name Last Name
+
+- searching for a client - display all people working for specific client
+	among all teams groupped by team id (should look similar to the language example) and those without a team
+
+Extra task:
+
+- modify employee team - pass employee id and new team id to a function, so the employee will change its team
+- union teams - unite employees of N teams into a team with new unique id
