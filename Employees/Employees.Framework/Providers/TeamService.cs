@@ -36,6 +36,9 @@ namespace Employees.Framework.Providers
             {
                 employees.Where(e => e.TeamId == teamId).ToList().ForEach(e => e.TeamId = newTeamId);
             }
+
+            // Just to check if it's wokring
+            Console.WriteLine(string.Join("", employees.Where(e => e.TeamId == newTeamId).SelectMany(e => e.FirstName + " " + e.LastName + "\r\n")));
         }
 
         private IEnumerable<int> GetAllTeamsIds()

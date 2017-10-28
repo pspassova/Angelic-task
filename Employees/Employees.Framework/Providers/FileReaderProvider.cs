@@ -1,23 +1,10 @@
 ﻿using Employees.Framework.Providers.Contracts;
-using System;
 using System.IO;
 
 namespace Employees.Framework.Providers
 {
     public class FileReaderProvider : IFileReader
     {
-        //private readonly StreamReader streamReader;
-
-        public FileReaderProvider()
-        {
-            //if (streamReader == null)
-            //{
-            //    throw new ArgumentNullException();
-            //}
-
-            //this.streamReader = streamReader;
-        }
-
         public string Read(string pathToFile)
         {
             string file = null;
@@ -30,7 +17,7 @@ namespace Employees.Framework.Providers
             return file;
         }
 
-        private StreamReader GetStreamReader(string pathToFile)
+        public StreamReader GetStreamReader(string pathToFile)
         {
             return new StreamReader(pathToFile);
         }

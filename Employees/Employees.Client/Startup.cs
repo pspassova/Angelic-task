@@ -1,9 +1,5 @@
-﻿using Employees.DataModels.Models;
-using Employees.Framework.Commands;
-using Employees.Framework.Commands.Contracts;
-using Employees.Framework.Data;
-using Employees.Framework.Providers;
-using System.Collections.Generic;
+﻿using Employees.Framework.Commands.Contracts;
+using Ninject;
 
 namespace Employees.Client
 {
@@ -11,30 +7,30 @@ namespace Employees.Client
     {
         public static void Main()
         {
-            var fileReader = new FileReaderProvider();
-            var jsonConverter = new JsonConverterProvider<IEnumerable<Employee>>();
-            var dataProvider = new DataFromFileProvider<Employee>(fileReader, jsonConverter);
-            var dataWrapper = new EmployeesDataWrapper(dataProvider);
-            var employeeService = new EmployeeService(dataWrapper);
-            var teamService = new TeamService(dataWrapper);
-            var consoleWriter = new ConsoleWriterProvider();
+            IKernel kernel = new StandardKernel(new EmployeesModule());
 
-            IDisplayEmployeesCommand employeesCommand = new DisplayEmployeesCommand(employeeService, teamService, consoleWriter);
+            IDisplayEmployeesCommand employeesCommandDisplayer = kernel.Get<IDisplayEmployeesCommand>();
 
-            employeesCommand.DisplayEmployeesByTeamId(30);
+            #region Test calls
+            //int teamId = 30;
+            //employeesCommandDisplayer.DisplayEmployeesByTeamId(teamId);
 
-            employeesCommand.DisplayModifyEmloyeeTeamResult(1, 22); 
-            employeesCommand.DisplayEmployeesByTeamId(30);
+            //int employeeId = 1;
+            //int newTeamId = 22;
+            //employeesCommandDisplayer.DisplayModifyEmloyeeTeamResult(employeeId, newTeamId);
+            //employeesCommandDisplayer.DisplayEmployeesByTeamId(teamId);
 
-            employeesCommand.DisplayEmployeesWithoutATeam();
+            //employeesCommandDisplayer.DisplayEmployeesWithoutATeam();
 
-            employeesCommand.DisplayTeamsFilteredByLanguage("Bulgarian");
+            //string language = "Bulgarian";
+            //employeesCommandDisplayer.DisplayTeamsFilteredByLanguage(language);
 
-            employeesCommand.DisplayTeamsFilteredByClient("Yakidoo");
+            //string client = "Yakidoo";
+            //employeesCommandDisplayer.DisplayTeamsFilteredByClient(client);
 
-            employeesCommand.DisplayUnionTeamsResult(new int[] { 30, 44 }); // there are different instances for the teams service and the display class
-
-
+            //int[] teamsIds = new int[] { 30, 44 };
+            //employeesCommandDisplayer.DisplayUnionTeamsResult(teamsIds);
+            #endregion
         }
     }
 }
