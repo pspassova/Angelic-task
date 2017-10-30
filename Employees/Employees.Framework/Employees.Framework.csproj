@@ -52,15 +52,13 @@
     <Compile Include="Providers\DataFromFileProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ConsoleWriterProvider.cs" />
-    <Compile Include="Providers\Contracts\IEmployeeService.cs" />
+    <Compile Include="Providers\Services\Contracts\IEmployeeService.cs" />
     <Compile Include="Providers\Contracts\IFileReader.cs" />
     <Compile Include="Providers\Contracts\IJsonConverter.cs" />
-    <Compile Include="Providers\Contracts\ITeamService.cs" />
-    <Compile Include="Providers\Contracts\IWriter.cs" />
-    <Compile Include="Providers\EmployeeService.cs" />
+    <Compile Include="Providers\Contracts\IConsoleWriter.cs" />
+    <Compile Include="Providers\Services\EmployeeService.cs" />
     <Compile Include="Providers\FileReaderProvider.cs" />
     <Compile Include="Providers\JsonConverterProvider.cs" />
-    <Compile Include="Providers\TeamService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Employees.DataModels\Employees.DataModels.csproj">

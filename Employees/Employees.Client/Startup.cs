@@ -12,24 +12,28 @@ namespace Employees.Client
             IDisplayEmployeesCommand employeesCommandDisplayer = kernel.Get<IDisplayEmployeesCommand>();
 
             #region Test calls
-            //int teamId = 30;
-            //employeesCommandDisplayer.DisplayEmployeesByTeamId(teamId);
+            int teamId = 30;
+            employeesCommandDisplayer.DisplayEmployeesByTeamId(teamId);
 
-            //int employeeId = 1;
-            //int newTeamId = 22;
-            //employeesCommandDisplayer.DisplayModifyEmloyeeTeamResult(employeeId, newTeamId);
-            //employeesCommandDisplayer.DisplayEmployeesByTeamId(teamId);
+            int employeeId = 1;
+            int newTeamId = 22;
+            employeesCommandDisplayer.DisplayModifyEmloyeeTeamResult(employeeId, newTeamId);
+            employeesCommandDisplayer.DisplayEmployeesByTeamId(teamId);
 
-            //employeesCommandDisplayer.DisplayEmployeesWithoutATeam();
+            employeesCommandDisplayer.DisplayEmployeesWithoutATeam();
 
-            //string language = "Bulgarian";
-            //employeesCommandDisplayer.DisplayTeamsFilteredByLanguage(language);
+            string language = "Bulgarian";
+            employeesCommandDisplayer.DisplayTeamsFilteredByLanguage(language);
 
-            //string client = "Yakidoo";
-            //employeesCommandDisplayer.DisplayTeamsFilteredByClient(client);
+            string client = "Yakidoo";
+            employeesCommandDisplayer.DisplayTeamsFilteredByClient(client);
 
-            //int[] teamsIds = new int[] { 30, 44 };
-            //employeesCommandDisplayer.DisplayUnionTeamsResult(teamsIds);
+            int[] teamsIds = new int[] { 30, 44 };
+            employeesCommandDisplayer.DisplayUnionTeamsResult(teamsIds);
+            foreach (int id in teamsIds)
+            {
+                employeesCommandDisplayer.DisplayEmployeesByTeamId(id);
+            }
             #endregion
         }
     }

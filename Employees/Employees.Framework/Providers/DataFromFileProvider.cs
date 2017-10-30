@@ -6,9 +6,9 @@ namespace Employees.Framework.Providers
 {
     public class DataFromFileProvider<T> : IDataProvider<T> where T : class
     {
-        private readonly string DataFilePath = "../../../../JsonData/People.txt";
         private readonly IFileReader fileReader;
         private readonly IJsonConverter<IEnumerable<T>> jsonConverter;
+        private readonly string DataFilePath = "../../../../JsonData/People.txt";
 
         public DataFromFileProvider(IFileReader fileReader, IJsonConverter<IEnumerable<T>> jsonConverter)
         {

@@ -1,6 +1,6 @@
 ﻿namespace Employees.Framework.Providers.Contracts
 {
-    public interface IWriter
+    public interface IConsoleWriter
     {
         void WriteLine(string message);
     }

@@ -1,6 +1,7 @@
 ﻿using Employees.DataModels.Models;
 using Employees.Framework.Commands.Contracts;
 using Employees.Framework.Providers.Contracts;
+using Employees.Framework.Providers.Services.Contracts;
 using System;
 using System.Collections.Generic;
 
@@ -9,22 +10,17 @@ namespace Employees.Framework.Commands
     public class DisplayEmployeesCommand : IDisplayEmployeesCommand
     {
         private readonly IEmployeeService employeeService;
-        private readonly ITeamService teamService;
-        private readonly IWriter consoleWriter;
+        private readonly IConsoleWriter consoleWriter;
 
         private const int EmployeesWithoutATeamTeamId = -1;
 
-        public DisplayEmployeesCommand(IEmployeeService employeeService, ITeamService teamService, IWriter consoleWriter)
+        public DisplayEmployeesCommand(IEmployeeService employeeService, IConsoleWriter consoleWriter)
         {
             if (employeeService == null)
             {
                 throw new ArgumentNullException();
             }
 
-            if (teamService == null)
-            {
-                throw new ArgumentNullException();
-            }
 
             if (consoleWriter == null)
             {
@@ -32,7 +28,6 @@ namespace Employees.Framework.Commands
             }
 
             this.employeeService = employeeService;
-            this.teamService = teamService;
             this.consoleWriter = consoleWriter;
         }
 
@@ -96,8 +91,9 @@ namespace Employees.Framework.Commands
         {
             this.consoleWriter.WriteLine($"\n\r---Union teams with team IDs {String.Join(", ", teamsIds)} into a new one----");
 
-            int newTeamId = this.teamService.CreateNewTeamId();
-            this.teamService.UnionTeamsIntoANewOne(teamsIds, newTeamId);
+            int newTeamId = this.employeeService.CreateNewTeamId();
+            this.employeeService.UnionTeamsIntoANewOne(teamsIds, newTeamId);
+            this.DisplayEmployeesByTeamId(newTeamId);
         }
 
         private void DisplayEmployeesByTeamId(IEnumerable<Employee> employees, int? teamId)

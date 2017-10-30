@@ -4,6 +4,8 @@ using Employees.Framework.Data;
 using Employees.Framework.Data.Contracts;
 using Employees.Framework.Providers;
 using Employees.Framework.Providers.Contracts;
+using Employees.Framework.Providers.Services;
+using Employees.Framework.Providers.Services.Contracts;
 using Ninject.Modules;
 using System.IO;
 
@@ -15,14 +17,14 @@ namespace Employees.Client
         {
             this.Bind<IDisplayEmployeesCommand>().To<DisplayEmployeesCommand>().InSingletonScope();
 
-            this.Bind(typeof(IDataProvider<>)).To(typeof(DataFromFileProvider<>));
-
-            this.Bind<IFileReader>().To<FileReaderProvider>().InSingletonScope();
-            this.Bind<IWriter>().To<ConsoleWriterProvider>().InSingletonScope();
-            this.Bind(typeof(IJsonConverter<>)).To(typeof(JsonConverterProvider<>));
             this.Bind<IEmployeesDataWrapper>().To<EmployeesDataWrapper>().InSingletonScope();
+
+            this.Bind(typeof(IDataProvider<>)).To(typeof(DataFromFileProvider<>));
+            this.Bind(typeof(IJsonConverter<>)).To(typeof(JsonConverterProvider<>));
+            this.Bind<IFileReader>().To<FileReaderProvider>().InSingletonScope();
+            this.Bind<IConsoleWriter>().To<ConsoleWriterProvider>().InSingletonScope();
+
             this.Bind<IEmployeeService>().To<EmployeeService>().InSingletonScope();
-            this.Bind<ITeamService>().To<TeamService>().InSingletonScope();
 
             this.Bind<StreamReader>().ToSelf();
         }

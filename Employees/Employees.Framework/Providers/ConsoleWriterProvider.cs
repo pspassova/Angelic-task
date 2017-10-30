@@ -3,7 +3,7 @@ using System;
 
 namespace Employees.Framework.Providers
 {
-    public class ConsoleWriterProvider : IWriter
+    public class ConsoleWriterProvider : IConsoleWriter
     {
         public void WriteLine(string message)
         {

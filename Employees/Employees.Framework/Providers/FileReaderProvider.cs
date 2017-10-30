@@ -17,7 +17,7 @@ namespace Employees.Framework.Providers
             return file;
         }
 
-        public StreamReader GetStreamReader(string pathToFile)
+        private StreamReader GetStreamReader(string pathToFile)
         {
             return new StreamReader(pathToFile);
         }
