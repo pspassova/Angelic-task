@@ -7,7 +7,7 @@ namespace Employees.Framework.Providers.Services.Contracts
     {
         Employee GetEmployeeById(int id);
 
-        IEnumerable<Employee> GetEmployeesByTeamId(int? teamId);
+        IEnumerable<Employee> GetEmployeesByTeamId(int teamId);
 
         IEnumerable<Employee> GetEmployeesByLanguage(string language);
 

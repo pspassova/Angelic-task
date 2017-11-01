@@ -2,7 +2,7 @@
 {
     public interface IDisplayEmployeesCommand
     {
-        void DisplayEmployeesByTeamId(int? teamsId);
+        void DisplayEmployeesByTeamId(int teamsId);
 
         void DisplayEmployeesWithoutATeam();
 

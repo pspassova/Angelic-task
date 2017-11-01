@@ -19,8 +19,8 @@ namespace Employees.Client
 
             this.Bind<IEmployeesDataWrapper>().To<EmployeesDataWrapper>().InSingletonScope();
 
-            this.Bind(typeof(IDataProvider<>)).To(typeof(DataFromFileProvider<>));
-            this.Bind(typeof(IJsonConverter<>)).To(typeof(JsonConverterProvider<>));
+            this.Bind(typeof(IDataProvider<>)).To(typeof(DataFromFileProvider<>)).InSingletonScope();
+            this.Bind(typeof(IJsonConverter<>)).To(typeof(JsonConverterProvider<>)).InSingletonScope();
             this.Bind<IFileReader>().To<FileReaderProvider>().InSingletonScope();
             this.Bind<IConsoleWriter>().To<ConsoleWriterProvider>().InSingletonScope();
 

@@ -41,7 +41,7 @@ namespace Employees.Framework.Providers.Services
             return this.employeesDataWrapper.GetById(id);
         }
 
-        public IEnumerable<Employee> GetEmployeesByTeamId(int? teamId)
+        public IEnumerable<Employee> GetEmployeesByTeamId(int teamId)
         {
             return this.EmployeesCollection.Where(e => e.TeamId == teamId);
         }
@@ -109,7 +109,7 @@ namespace Employees.Framework.Providers.Services
 
         public void UnionTeamsIntoANewOne(int[] teamsIds, int newTeamId)
         {
-            IEnumerable<Employee> employees = this.employeesDataWrapper.GetAll();
+            IEnumerable<Employee> employees = this.EmployeesCollection;
             foreach (int teamId in teamsIds)
             {
                 IEnumerable<Employee> employeesWithId = employees.Where(e => e.TeamId == teamId);
@@ -122,7 +122,7 @@ namespace Employees.Framework.Providers.Services
 
         private IEnumerable<int> GetAllTeamsIds()
         {
-            IEnumerable<int> teamsIds = this.employeesDataWrapper.GetAll().Select(e => e.TeamId);
+            IEnumerable<int> teamsIds = this.EmployeesCollection.Select(e => e.TeamId);
 
             return teamsIds;
         }

@@ -31,12 +31,18 @@ namespace Employees.Framework.Commands
             this.consoleWriter = consoleWriter;
         }
 
-        public void DisplayEmployeesByTeamId(int? teamId)
+        public void DisplayEmployeesByTeamId(int teamId)
         {
-            if (teamId == null || teamId == -1)
+            if (teamId < -1)
             {
-                this.consoleWriter.WriteLine($"\n\r----No team----");
+                throw new ArgumentException();
             }
+
+            else if (teamId == -1)
+            {
+                this.consoleWriter.WriteLine("\n\r----No team----");
+            }
+
             else
             {
                 this.consoleWriter.WriteLine($"\n\r----Team Id {teamId}----");
@@ -89,19 +95,19 @@ namespace Employees.Framework.Commands
 
         public void DisplayUnionTeamsResult(int[] teamsIds)
         {
-            this.consoleWriter.WriteLine($"\n\r---Union teams with team IDs {String.Join(", ", teamsIds)} into a new one----");
-
             int newTeamId = this.employeeService.CreateNewTeamId();
             this.employeeService.UnionTeamsIntoANewOne(teamsIds, newTeamId);
+
+            this.consoleWriter.WriteLine($"\n\r---Union teams with team IDs {String.Join(", ", teamsIds)} into a new one----");
             this.DisplayEmployeesByTeamId(newTeamId);
         }
 
-        private void DisplayEmployeesByTeamId(IEnumerable<Employee> employees, int? teamId)
+        private void DisplayEmployeesByTeamId(IEnumerable<Employee> employees, int teamId)
         {
 
-            if (teamId == null || teamId == -1)
+            if (teamId == -1)
             {
-                this.consoleWriter.WriteLine($"\n\r----No team----");
+                this.consoleWriter.WriteLine("\n\r----No team----");
             }
             else
             {
