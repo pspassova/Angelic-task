@@ -61,27 +61,43 @@ namespace Employees.Framework.Commands
 
         public void DisplayTeamsFilteredByLanguage(string language)
         {
+            if (language == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             IEnumerable<Employee> employeesFilteredByLanguage = this.employeeService.GetEmployeesByLanguage(language);
             IDictionary<int, List<Employee>> employeesByLanguageGroupedByTeam = this.employeeService.GroupEmployeesByTeamIdOrderedAsc(employeesFilteredByLanguage);
 
             this.consoleWriter.WriteLine($"\n\r----Employees who speak {language}----");
 
-            foreach (int teamId in employeesByLanguageGroupedByTeam.Keys)
+            if (employeesByLanguageGroupedByTeam != null)
             {
-                this.DisplayEmployeesByTeamId(employeesByLanguageGroupedByTeam[teamId], teamId);
+                foreach (int teamId in employeesByLanguageGroupedByTeam.Keys)
+                {
+                    this.DisplayEmployeesByTeamId(employeesByLanguageGroupedByTeam[teamId], teamId);
+                }
             }
         }
 
         public void DisplayTeamsFilteredByClient(string client)
         {
+            if (client == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             IEnumerable<Employee> employeesFilteredByClient = this.employeeService.GetEmployeesByClient(client);
             IDictionary<int, List<Employee>> employeesByClientGroupedByTeam = this.employeeService.GroupEmployeesByTeamIdOrderedAsc(employeesFilteredByClient);
 
             this.consoleWriter.WriteLine($"\n\r----Employees with client {client}----");
 
-            foreach (int teamId in employeesByClientGroupedByTeam.Keys)
+            if (employeesByClientGroupedByTeam != null)
             {
-                this.DisplayEmployeesByTeamId(employeesByClientGroupedByTeam[teamId], teamId);
+                foreach (int teamId in employeesByClientGroupedByTeam.Keys)
+                {
+                    this.DisplayEmployeesByTeamId(employeesByClientGroupedByTeam[teamId], teamId);
+                }
             }
         }
 

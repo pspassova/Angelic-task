@@ -59,6 +59,10 @@
     <Compile Include="Commands\DisplayEmployeesCommandTests\Constructor_Should.cs" />
     <Compile Include="Commands\DisplayEmployeesCommandTests\DisplayEmployeesByTeamId_Should.cs" />
     <Compile Include="Commands\DisplayEmployeesCommandTests\DisplayEmployeesWithoutATeam_Should.cs" />
+    <Compile Include="Commands\DisplayEmployeesCommandTests\DisplayModifyEmloyeeTeamResult_Should.cs" />
+    <Compile Include="Commands\DisplayEmployeesCommandTests\DisplayTeamsFilteredByClient_Should.cs" />
+    <Compile Include="Commands\DisplayEmployeesCommandTests\DisplayTeamsFilteredByLanguage_Should.cs" />
+    <Compile Include="Commands\DisplayEmployeesCommandTests\DisplayUnionTeamsResult_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
