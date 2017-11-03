@@ -5,7 +5,7 @@ using Moq;
 using NUnit.Framework;
 using System;
 
-namespace Employees.Tests.Commands.DisplayEmployeesCommandTests
+namespace Employees.Tests.Framework.Commands.DisplayEmployeesCommandTests
 {
     [TestFixture]
     public class DisplayUnionTeamsResult_Should

@@ -7,7 +7,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 
-namespace Employees.Tests.Commands.DisplayEmployeesCommandTests
+namespace Employees.Tests.Framework.Commands.DisplayEmployeesCommandTests
 {
     [TestFixture]
     public class DisplayTeamsFilteredByClient_Should

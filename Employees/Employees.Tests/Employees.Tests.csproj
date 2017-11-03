@@ -56,13 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\DisplayEmployeesCommandTests\Constructor_Should.cs" />
-    <Compile Include="Commands\DisplayEmployeesCommandTests\DisplayEmployeesByTeamId_Should.cs" />
-    <Compile Include="Commands\DisplayEmployeesCommandTests\DisplayEmployeesWithoutATeam_Should.cs" />
-    <Compile Include="Commands\DisplayEmployeesCommandTests\DisplayModifyEmloyeeTeamResult_Should.cs" />
-    <Compile Include="Commands\DisplayEmployeesCommandTests\DisplayTeamsFilteredByClient_Should.cs" />
-    <Compile Include="Commands\DisplayEmployeesCommandTests\DisplayTeamsFilteredByLanguage_Should.cs" />
-    <Compile Include="Commands\DisplayEmployeesCommandTests\DisplayUnionTeamsResult_Should.cs" />
+    <Compile Include="Framework\Commands\DisplayEmployeesCommandTests\Constructor_Should.cs" />
+    <Compile Include="Framework\Commands\DisplayEmployeesCommandTests\DisplayEmployeesByTeamId_Should.cs" />
+    <Compile Include="Framework\Commands\DisplayEmployeesCommandTests\DisplayEmployeesWithoutATeam_Should.cs" />
+    <Compile Include="Framework\Commands\DisplayEmployeesCommandTests\DisplayModifyEmloyeeTeamResult_Should.cs" />
+    <Compile Include="Framework\Commands\DisplayEmployeesCommandTests\DisplayTeamsFilteredByClient_Should.cs" />
+    <Compile Include="Framework\Commands\DisplayEmployeesCommandTests\DisplayTeamsFilteredByLanguage_Should.cs" />
+    <Compile Include="Framework\Commands\DisplayEmployeesCommandTests\DisplayUnionTeamsResult_Should.cs" />
+    <Compile Include="Framework\Data\EmployeesDataWrapperTests\Constructor_Should.cs" />
+    <Compile Include="Framework\Data\EmployeesDataWrapperTests\GetAll_Should.cs" />
+    <Compile Include="Framework\Data\EmployeesDataWrapperTests\GetById_Should.cs" />
+    <Compile Include="Framework\Providers\DataFromFileProviderTests\Constructor_Should.cs" />
+    <Compile Include="Framework\Providers\DataFromFileProviderTests\GetDataFromJson_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Framework\Providers\Services\EmployeeServiceTests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

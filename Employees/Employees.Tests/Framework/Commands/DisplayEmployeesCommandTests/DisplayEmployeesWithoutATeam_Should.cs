@@ -4,7 +4,7 @@ using Employees.Framework.Providers.Services.Contracts;
 using Moq;
 using NUnit.Framework;
 
-namespace Employees.Tests.Commands.DisplayEmployeesCommandTests
+namespace Employees.Tests.Framework.Commands.DisplayEmployeesCommandTests
 {
     [TestFixture]
     public class DisplayEmployeesWithoutATeam_Should

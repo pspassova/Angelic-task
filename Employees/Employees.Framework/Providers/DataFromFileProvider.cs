@@ -8,7 +8,8 @@ namespace Employees.Framework.Providers
     {
         private readonly IFileReader fileReader;
         private readonly IJsonConverter<IEnumerable<T>> jsonConverter;
-        private readonly string DataFilePath = "../../../../JsonData/People.txt";
+
+        private const string DataFilePath = "../../../../JsonData/People.txt"; 
 
         public DataFromFileProvider(IFileReader fileReader, IJsonConverter<IEnumerable<T>> jsonConverter)
         {
@@ -26,10 +27,10 @@ namespace Employees.Framework.Providers
             this.jsonConverter = jsonConverter;
         }
 
-        public IEnumerable<T> GetDataFromJson()
+        public IEnumerable<T> GetDataFromJson() // should get the path from somewhere else !!! FIX THIS
         {
             string file = this.fileReader.Read(DataFilePath);
-            IEnumerable<T> data = this.jsonConverter.DeserializeObject(file);
+            IEnumerable<T> data = this.jsonConverter.DeserializeObject(file); // NOT TESTED
 
             return data;
         }
