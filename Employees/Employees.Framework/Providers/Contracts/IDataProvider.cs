@@ -4,6 +4,6 @@ namespace Employees.Framework.Providers.Contracts
 {
     public interface IDataProvider<T>
     {
-        IEnumerable<T> GetDataFromJson();
+        IEnumerable<T> GetDataFromJson(string pathToFile);
     }
 }

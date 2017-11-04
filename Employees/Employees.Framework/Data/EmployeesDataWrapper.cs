@@ -10,6 +10,7 @@ namespace Employees.Framework.Data
     public class EmployeesDataWrapper : IEmployeesDataWrapper
     {
         private readonly IDataProvider<Employee> dataProvider;
+        private const string DataFilePath = "../../../../JsonData/People.txt";
 
         public EmployeesDataWrapper(IDataProvider<Employee> dataProvider)
         {
@@ -23,7 +24,7 @@ namespace Employees.Framework.Data
 
         public IEnumerable<Employee> GetAll()
         {
-            return this.dataProvider.GetDataFromJson();
+            return this.dataProvider.GetDataFromJson(DataFilePath);
         }
 
         public Employee GetById(int id)

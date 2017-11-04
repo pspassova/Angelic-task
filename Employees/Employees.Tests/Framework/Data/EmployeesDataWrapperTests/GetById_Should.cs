@@ -27,7 +27,7 @@ namespace Employees.Tests.Framework.Data.EmployeesDataWrapperTests
             };
 
             var dataProviderMock = new Mock<IDataProvider<Employee>>();
-            dataProviderMock.Setup(x => x.GetDataFromJson()).Returns(testEmployeesList);
+            dataProviderMock.Setup(x => x.GetDataFromJson(It.IsAny<string>())).Returns(testEmployeesList);
             var employeesDataWrapper = new EmployeesDataWrapper(dataProviderMock.Object);
 
             var expectedEmployee = testEmployeesList.SingleOrDefault(x => x.Id == testEmployeeId);

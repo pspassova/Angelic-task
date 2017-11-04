@@ -68,6 +68,7 @@
     <Compile Include="Framework\Data\EmployeesDataWrapperTests\GetById_Should.cs" />
     <Compile Include="Framework\Providers\DataFromFileProviderTests\Constructor_Should.cs" />
     <Compile Include="Framework\Providers\DataFromFileProviderTests\GetDataFromJson_Should.cs" />
+    <Compile Include="Framework\Providers\FileReaderProviderTests\Read_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

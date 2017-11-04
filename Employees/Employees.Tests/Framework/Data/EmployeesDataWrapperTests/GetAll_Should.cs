@@ -20,7 +20,7 @@ namespace Employees.Tests.Framework.Data.EmployeesDataWrapperTests
             employeesDataWrapper.GetAll();
 
             // Assert
-            dataProviderMock.Verify(x => x.GetDataFromJson(), Times.Once);
+            dataProviderMock.Verify(x => x.GetDataFromJson(It.IsAny<string>()), Times.Once);
         }
     }
 }

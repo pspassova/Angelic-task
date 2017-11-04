@@ -7,7 +7,6 @@ using Employees.Framework.Providers.Contracts;
 using Employees.Framework.Providers.Services;
 using Employees.Framework.Providers.Services.Contracts;
 using Ninject.Modules;
-using System.IO;
 
 namespace Employees.Client
 {
@@ -25,8 +24,6 @@ namespace Employees.Client
             this.Bind<IConsoleWriter>().To<ConsoleWriterProvider>().InSingletonScope();
 
             this.Bind<IEmployeeService>().To<EmployeeService>().InSingletonScope();
-
-            this.Bind<StreamReader>().ToSelf();
         }
     }
 }

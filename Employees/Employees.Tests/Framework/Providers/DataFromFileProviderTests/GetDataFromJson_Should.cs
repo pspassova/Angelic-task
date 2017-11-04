@@ -23,13 +23,46 @@ namespace Employees.Tests.Framework.Providers.DataFromFileProviderTests
         }
 
         [Test]
-        public void InvokeReadMethodFromFileReader_WithTheCorrectPath()
+        public void InvokeReadMethodFromFileReader_Once()
         {
             // Arrange, Act
-            this.dataFromFileProvider.GetDataFromJson();
+            this.dataFromFileProvider.GetDataFromJson(It.IsAny<string>());
 
             // Assert
             this.fileReaderMock.Verify(x => x.Read(It.IsAny<string>()), Times.Once);
+        }
+
+        [Test]
+        public void InvokeDeserializeObjectMethodFromJsonConverter_once()
+        {
+            // Arrange, Act
+            this.dataFromFileProvider.GetDataFromJson(It.IsAny<string>());
+
+            // Assert
+            this.jsonConverterMock.Verify(x => x.DeserializeObject(It.IsAny<string>()), Times.Once);
+        }
+
+        [Test]
+        public void ReturnCorrectData_WhenPathToFileIsProvided()
+        {
+            // Arrange
+            string testPathToFile = "../People.txt";
+            string testFile = "{\"id\": 1, \"first_name\": \"Simmonds\"}";
+            var expectedData = new List<Employee>
+            {
+                new Mock<Employee>().Object,
+                new Mock<Employee>().Object,
+                new Mock<Employee>().Object
+            };
+
+            this.fileReaderMock.Setup(x => x.Read(testPathToFile)).Returns(testFile);
+            this.jsonConverterMock.Setup(x => x.DeserializeObject(testFile)).Returns(expectedData);
+
+            // Act
+            IEnumerable<Employee> actualData = this.dataFromFileProvider.GetDataFromJson(testPathToFile);
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedData, actualData);
         }
     }
 }
