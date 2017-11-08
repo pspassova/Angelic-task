@@ -81,6 +81,7 @@
     <Compile Include="Framework\Providers\Services\EmployeeServiceTests\GetEmployeesByClient_Should.cs" />
     <Compile Include="Framework\Providers\Services\EmployeeServiceTests\GetEmployeesByLanguage_Should.cs" />
     <Compile Include="Framework\Providers\Services\EmployeeServiceTests\GetEmployeesByTeamId_Should.cs" />
+    <Compile Include="Framework\Providers\Services\EmployeeServiceTests\GroupEmployeesByTeamIdOrderedAsc_Should.cs" />
     <Compile Include="Framework\Providers\Services\EmployeeServiceTests\UnionTeamsIntoANewOne_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
