@@ -13,7 +13,7 @@ namespace Employees.Framework.Providers.Services.Contracts
 
         IEnumerable<Employee> GetEmployeesByClient(string client);
 
-        IDictionary<int, List<Employee>> GroupEmployeesByTeamIdOrderedAsc(IEnumerable<Employee> employees);
+        IDictionary<int, HashSet<Employee>> GroupEmployeesByTeamIdOrderedAsc(IEnumerable<Employee> employees);
 
         void ModifyEmployeeTeam(int employeeId, int newTeamId);
 

@@ -67,7 +67,7 @@ namespace Employees.Framework.Commands
             }
 
             IEnumerable<Employee> employeesFilteredByLanguage = this.employeeService.GetEmployeesByLanguage(language);
-            IDictionary<int, List<Employee>> employeesByLanguageGroupedByTeam = this.employeeService.GroupEmployeesByTeamIdOrderedAsc(employeesFilteredByLanguage);
+            IDictionary<int, HashSet<Employee>> employeesByLanguageGroupedByTeam = this.employeeService.GroupEmployeesByTeamIdOrderedAsc(employeesFilteredByLanguage);
 
             this.consoleWriter.WriteLine($"\n\r----Employees who speak {language}----");
 
@@ -88,7 +88,7 @@ namespace Employees.Framework.Commands
             }
 
             IEnumerable<Employee> employeesFilteredByClient = this.employeeService.GetEmployeesByClient(client);
-            IDictionary<int, List<Employee>> employeesByClientGroupedByTeam = this.employeeService.GroupEmployeesByTeamIdOrderedAsc(employeesFilteredByClient);
+            IDictionary<int, HashSet<Employee>> employeesByClientGroupedByTeam = this.employeeService.GroupEmployeesByTeamIdOrderedAsc(employeesFilteredByClient);
 
             this.consoleWriter.WriteLine($"\n\r----Employees with client {client}----");
 

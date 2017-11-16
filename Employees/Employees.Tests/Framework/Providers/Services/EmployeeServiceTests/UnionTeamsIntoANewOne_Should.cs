@@ -26,7 +26,7 @@ namespace Employees.Tests.Framework.Providers.Services.EmployeeServiceTests
             secondEmployeeMock.Object.TeamId = testEmployeesTeamIds[1];
             secondEmployeeMock.Object.Id = testEmployeesIds[1];
 
-            IEnumerable<Employee> mockEmployees = new List<Employee> { firstEmployeeMock.Object, secondEmployeeMock.Object };
+            IEnumerable<Employee> mockEmployees = new HashSet<Employee> { firstEmployeeMock.Object, secondEmployeeMock.Object };
 
             var employeesDataWrapperMock = new Mock<IEmployeesDataWrapper>();
             employeesDataWrapperMock.Setup(x => x.GetAll()).Returns(mockEmployees);

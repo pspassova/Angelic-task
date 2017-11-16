@@ -26,7 +26,7 @@ namespace Employees.Tests.Framework.Providers.Services.EmployeeServiceTests
             var thirdEmployeeMock = new Mock<Employee>();
             thirdEmployeeMock.Object.TeamId = testEmployeesTeamIds[1];
 
-            var mockEmployees = new List<Employee>
+            var mockEmployees = new HashSet<Employee>
             {
                 firstEmployeeMock.Object,
                 secondEmployeeMock.Object,
@@ -37,7 +37,7 @@ namespace Employees.Tests.Framework.Providers.Services.EmployeeServiceTests
             EmployeeService employeeService = new EmployeeService(employeesDataWrapperMock.Object);
 
             // Act
-            IDictionary<int, List<Employee>> resultEmployeesGroups = employeeService.GroupEmployeesByTeamIdOrderedAsc(mockEmployees);
+            IDictionary<int, HashSet<Employee>> resultEmployeesGroups = employeeService.GroupEmployeesByTeamIdOrderedAsc(mockEmployees);
 
             // Assert
             Assert.AreEqual(testEmployeesTeamIds, resultEmployeesGroups.Keys);

@@ -34,7 +34,7 @@ namespace Employees.Tests.Framework.Providers.Services.EmployeeServiceTests
             var secondEmployeeMock = new Mock<Employee>();
             secondEmployeeMock.Object.Language = testLanguageNames[1];
 
-            var mockEmployees = new List<Employee> { firstEmployeeMock.Object, secondEmployeeMock.Object };
+            var mockEmployees = new HashSet<Employee> { firstEmployeeMock.Object, secondEmployeeMock.Object };
 
             var employeesDataWrapperMock = new Mock<IEmployeesDataWrapper>();
             employeesDataWrapperMock.Setup(x => x.GetAll()).Returns(mockEmployees);

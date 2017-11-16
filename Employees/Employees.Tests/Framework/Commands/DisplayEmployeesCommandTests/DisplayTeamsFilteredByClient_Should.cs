@@ -49,7 +49,7 @@ namespace Employees.Tests.Framework.Commands.DisplayEmployeesCommandTests
         {
             // Arrange
             string testClient = "test Client";
-            IEnumerable<Employee> testCollection = new List<Employee>();
+            IEnumerable<Employee> testCollection = new HashSet<Employee>();
 
             // Act
             this.displayEmployeesCommand.DisplayTeamsFilteredByClient(testClient);

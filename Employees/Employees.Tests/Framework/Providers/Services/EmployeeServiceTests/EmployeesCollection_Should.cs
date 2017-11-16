@@ -15,7 +15,7 @@ namespace Employees.Tests.Framework.Providers.Services.EmployeeServiceTests
         {
             // Arrange
             var employeesDataWrapperMock = new Mock<IEmployeesDataWrapper>();
-            var expectedEmployees = new List<Employee> { new Mock<Employee>().Object };
+            var expectedEmployees = new HashSet<Employee> { new Mock<Employee>().Object };
             employeesDataWrapperMock.Setup(x => x.GetAll()).Returns(expectedEmployees);
 
             EmployeeService employeeService = new EmployeeService(employeesDataWrapperMock.Object);

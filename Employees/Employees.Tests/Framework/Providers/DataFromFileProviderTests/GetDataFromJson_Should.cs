@@ -48,7 +48,7 @@ namespace Employees.Tests.Framework.Providers.DataFromFileProviderTests
             // Arrange
             string testPathToFile = "../People.txt";
             string testFile = "{\"id\": 1, \"first_name\": \"Simmonds\"}";
-            var expectedData = new List<Employee>
+            var expectedData = new HashSet<Employee>
             {
                 new Mock<Employee>().Object,
                 new Mock<Employee>().Object,

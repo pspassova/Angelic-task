@@ -20,7 +20,7 @@ namespace Employees.Tests.Framework.Data.EmployeesDataWrapperTests
             var employeeMock = new Mock<Employee>();
             employeeMock.Object.Id = testEmployeeId;
 
-            var testEmployeesList = new List<Employee> {
+            var testEmployeesList = new HashSet<Employee> {
                 employeeMock.Object,
                 new Mock<Employee>().Object,
                 new Mock<Employee>().Object

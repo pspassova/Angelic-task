@@ -72,15 +72,15 @@ namespace Employees.Framework.Providers.Services
             return employeesByLanguage;
         }
 
-        public IDictionary<int, List<Employee>> GroupEmployeesByTeamIdOrderedAsc(IEnumerable<Employee> employees)
+        public IDictionary<int, HashSet<Employee>> GroupEmployeesByTeamIdOrderedAsc(IEnumerable<Employee> employees)
         {
-            SortedDictionary<int, List<Employee>> groups = new SortedDictionary<int, List<Employee>>();
+            SortedDictionary<int, HashSet<Employee>> groups = new SortedDictionary<int, HashSet<Employee>>();
 
             foreach (Employee employee in employees)
             {
                 if (!groups.ContainsKey(employee.TeamId))
                 {
-                    groups.Add(employee.TeamId, new List<Employee> { employee });
+                    groups.Add(employee.TeamId, new HashSet<Employee> { employee });
                 }
 
                 else
